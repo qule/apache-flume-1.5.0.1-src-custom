@@ -359,11 +359,11 @@ public class ReliableSpoolingFileEventReader implements ReliableEventReader {
     } else if (dest.exists()) {
       String message = "File name has been re-used with different" +
           " files. Spooling assumptions violated for " + dest;
-      throw new IllegalStateException(message);
+//      throw new IllegalStateException(message);
 
         // try to step through the thrown exception - only for testing!
-//        logger.debug("---------------------" + fileToRoll.getPath() + completedSuffix + "---existed!");
-//        logger.debug(message);
+        logger.debug("---------------------modified by wxf:   " + fileToRoll.getPath() + completedSuffix + "---existed!");
+        logger.debug("---------------------modified by wxf:   " + message);
 
     // Destination file does not already exist. We are good to go!
     } else {

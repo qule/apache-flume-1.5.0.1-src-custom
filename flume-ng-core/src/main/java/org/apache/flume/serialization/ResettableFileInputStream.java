@@ -192,7 +192,10 @@ public class ResettableFileInputStream extends ResettableInputStream
 
     CoderResult res = decoder.decode(buf, charBuf, isEndOfInput);
     if (res.isMalformed() || res.isUnmappable()) {
-      res.throwException();
+        //modification for getting over charset malformed exception - just skip the line
+        return -1;
+
+      //res.throwException();
     }
 
     int delta = buf.position() - start;
